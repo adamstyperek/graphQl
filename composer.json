@@ -1,5 +1,5 @@
 {
-    "name": "GraphQl Testing",
+    "name": "GraphQlTesting",
     "description": "Project to test GraphQl with Symfony",
     "type": "project",
     "license": "proprietary",
