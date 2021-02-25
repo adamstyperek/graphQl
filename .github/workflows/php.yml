@@ -32,14 +32,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-php-
 
-    - name: Install dependencies      
+    - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest      
-      
-      
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+
     - name: Analyse PHP Code (PHPStan)
       run: vendor/bin/phpstan analyse
-      
-    - uses: php-actions/phpunit@v2
-      env:
-        DB_PORT: ${{ job.services.mysql.ports[3306] }}
+
+    - name: Test php code (PHPUnit)
+      run: vendor/phpunit/phpunit/phpunit tests
+
